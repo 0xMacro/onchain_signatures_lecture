@@ -168,6 +168,7 @@ contract Comp {
         require(signatory != address(0), "Comp::delegateBySig: invalid signature");
         require(nonce == nonces[signatory]++, "Comp::delegateBySig: invalid nonce");
         require(block.timestamp <= expiry, "Comp::delegateBySig: signature expired");
+
         return _delegate(signatory, delegatee);
     }
 
